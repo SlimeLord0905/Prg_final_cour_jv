@@ -1,0 +1,164 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://asset/Adventurer-1.5/adventurer-v1.5-Sheet.png" type="Texture" id=1]
+[ext_resource path="res://player.cs" type="Script" id=2]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 27.0
+height = 44.0
+
+[sub_resource type="Animation" id=7]
+resource_name = "Nouvelle animation"
+length = 0.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 79, 80 ]
+}
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1 ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "fall"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 22, 23 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "idle"
+length = 0.8
+step = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "jump"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 14, 15, 16, 17 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "walk"
+length = 0.7
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 8, 8, 9, 10, 11, 12, 13, 14 ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "wallSlide"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 79, 80 ]
+}
+
+[node name="player" type="KinematicBody2D"]
+position = Vector2( -2, 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionBox" type="CollisionShape2D" parent="."]
+position = Vector2( -7, 5 )
+shape = SubResource( 1 )
+
+[node name="sprite" type="Sprite" parent="."]
+position = Vector2( 0, -7.62939e-06 )
+scale = Vector2( 2.72194, 3.38281 )
+texture = ExtResource( 1 )
+hframes = 7
+vframes = 16
+frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "idle"
+"anims/Nouvelle animation" = SubResource( 7 )
+anims/RESET = SubResource( 2 )
+anims/fall = SubResource( 6 )
+anims/idle = SubResource( 4 )
+anims/jump = SubResource( 5 )
+anims/walk = SubResource( 3 )
+anims/wallSlide = SubResource( 8 )
+
+[node name="lookRight" type="RayCast2D" parent="."]
+scale = Vector2( 1, 5 )
+enabled = true
+cast_to = Vector2( 30, 0 )
+collide_with_areas = true
+
+[node name="lookLeft" type="RayCast2D" parent="."]
+scale = Vector2( 1, 5 )
+enabled = true
+cast_to = Vector2( -44, 0 )
