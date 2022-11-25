@@ -40,6 +40,7 @@ Le jeux est situé dans une caverne alors il fait surtout noir exepté pour la z
     </tr>
 </table>
 *
+
 ## enemy chase 
 
 Les enemy vont voir ta lumière et te prendre en chase grace a des area 2D détectant ton entrer et ta sortie de la zone de détection.
@@ -71,6 +72,7 @@ Le player peu s'acrocher au mur en utilisant des raycast pour détecter ceux-ci 
     </tr>
 </table>
 *
+
 ## attack a distance/ système de particule 
 
 Le player peut utiliser une attack a distance sous la forme d'une attack qui laisse une trainé de particule derrière elle grace a l'utilisation de cpu particle un noeud 
@@ -87,6 +89,7 @@ intégré a godot qui perment de générer et modifiers des particules
     </tr>
 </table>
 *
+
 ## parralax
 
 Malgré l'éclairage faible de la caverne le paysage au fond reste en mouvement a différente vitesse grace au noued parralax layer de godot qui permet la gestion facile 
