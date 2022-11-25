@@ -17,7 +17,7 @@ le code spaghettie ou la multiplication des if
     <tr>
         <td>
             <figure>
-                <img src="assets/exemple/state.png"/>
+                <img src="asset/exemple/state.png"/>
                 <figcaption>personnage changeant de state l'annonçceant dans la console</figcaption>
             </figure>
         </td>
