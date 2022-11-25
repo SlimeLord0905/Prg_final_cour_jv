@@ -80,7 +80,7 @@ intégré a godot qui perment de générer et modifiers des particules
     <tr>
         <td>
             <figure>
-                <img src="asset/exemple/particules.png"/>
+                <img src="asset/exemple/particule.png"/>
                 <figcaption>personnage utilisant sont attacque a distance créant ainsi des particules</figcaption>
             </figure>
         </td>
